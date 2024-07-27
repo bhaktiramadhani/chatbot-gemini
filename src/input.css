@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.typing-indicator {
+  min-height: 20px; /* Adjust as needed */
+  white-space: pre-wrap; /* Preserve spaces and line breaks */
+}
