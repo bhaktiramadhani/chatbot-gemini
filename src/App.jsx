@@ -7,8 +7,7 @@ function App() {
   const [chats, setChats] = useState([]);
   const [loading, setLoading] = useState(false); // State untuk menampilkan animasi mengetik
   const [typingChatIndex, setTypingChatIndex] = useState(null); // Index chat yang sedang mengetik
-  const API_KEY = "";
-  const genAI = new GoogleGenerativeAI(API_KEY);
+  const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);
 
   const simulateTyping = (text, index) => {
     let typingText = "";
