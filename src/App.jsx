@@ -25,7 +25,7 @@ function App() {
         clearInterval(interval);
         setTypingChatIndex(null); // Stop loading animation
       }
-    }, 20); // Adjust the typing speed here
+    }, 5); // Adjust the typing speed here
   };
 
   const handleSend = async (e) => {
@@ -54,9 +54,6 @@ function App() {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
     const chat = model.startChat({
       history: chatHistory,
-      generationConfig: {
-        maxOutputTokens: 600,
-      },
     });
 
     const result = await chat.sendMessage(text);
@@ -91,7 +88,7 @@ function App() {
   };
 
   return (
-    <div className="w-full h-auto flex justify-center">
+    <div className="w-full min-h-screen h-auto flex justify-center">
       <div className="card rounded-none md:rounded-2xl bg-white text-black md:m-8 w-[800px] shadow-xl">
         <div className="card-body px-4 flex flex-col">
           <h1 className="font-bold text-2xl text-center">
@@ -142,6 +139,7 @@ function App() {
               className="input input-bordered join-item w-full bg-white border-black"
               placeholder="Mau nanya apa?"
               value={text}
+              required
               onChange={(e) => setText(e.target.value)}
             />
             <button
